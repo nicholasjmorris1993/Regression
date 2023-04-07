@@ -4,7 +4,7 @@ import plotly.graph_objects as go
 from plotly.offline import plot
 import sys
 sys.path.append("/home/nick/Regression/src")
-from online import streaming
+from offline import batching
 
 
 def histogram(df, x, bins=None, color=None, title=None, font_size=None):
@@ -23,7 +23,7 @@ data = pd.read_csv("/home/nick/Regression/test/LungCap.csv")
 
 # histogram(data, x="LungCap", bins=9, font_size=16)
 
-model = streaming(
+model = batching(
     df=data, 
     outputs=["LungCap"], 
     test_frac=0.5,
